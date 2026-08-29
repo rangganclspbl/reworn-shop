@@ -1,9 +1,33 @@
 import "./Navbar.css";
+import { useState } from "react";
+import { Search, ShoppingBag, X, Menu } from "lucide-react";
 
 export function Navbar() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchClosing, setIsSearchClosing] = useState(false);
+
+  const openSearch = () => {
+    setIsSearchOpen(true);
+  };
+
+  const closeSearch = () => {
+    setIsSearchClosing(true);
+
+    setTimeout(() => {
+      setIsSearchOpen(false);
+      setIsSearchClosing(false);
+      setSearchQuery("");
+    }, 250);
+  };
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
   return (
     <nav className="navbar">
-      <div className="Navbar-logo">
+      <div className="navbar-logo">
         <h1>ATHLEX</h1>
       </div>
 
@@ -14,8 +38,32 @@ export function Navbar() {
       </div>
 
       <div className="navbar-actions">
-        <button className="search-btn">Search</button>
-        <button className="cart-btn">Cart</button>
+        {isSearchOpen ? (
+          <>
+            <input
+              value={searchQuery}
+              onChange={handleSearchChange}
+              className={isSearchClosing ? "search-input closing" : "search-input"}
+            />
+            {searchQuery === "" ? (
+              <button className="close-search" onClick={closeSearch}>
+                <X size={21} strokeWidth={2.5} />
+              </button>
+            ) : (
+              <Search size={21} strokeWidth={2.5} />
+            )}
+          </>
+        ) : (
+          <button className="search-btn" onClick={openSearch}>
+            <Search size={21} strokeWidth={2.5} />
+          </button>
+        )}
+        <button className="cart-btn">
+          <ShoppingBag size={21} strokeWidth={2.5} />
+        </button>
+        <button className="ham-btn">
+          <Menu size={21} strokeWidth={2.5} />
+        </button>
       </div>
     </nav>
   );

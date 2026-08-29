@@ -12,15 +12,45 @@
   font-size: 24px;
 }
 
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
 .navbar-links a {
   text-decoration: none;
   color: black;
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
 }
 
-.navbar-links a:hover {
-  color: gray;
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: #272727;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+  animation: heartbeat116 1.5s ease-in-out 0.3s infinite;
+}
+
+@keyframes heartbeat116 {
+  0%,
+  100% {
+    width: 100%;
+  }
+  50% {
+    width: 60%;
+  }
 }
 
 .navbar-actions {
@@ -32,10 +62,115 @@
 .navbar-actions button {
   border: none;
   background: none;
-  font-size: 17px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-actions .ham-btn {
+  display: none;
 }
 
 .navbar-actions button:hover {
   opacity: 0.6;
+}
+
+.search-input {
+  width: 100px;
+  height: 32px;
+  padding: 0 10px;
+
+  border: none;
+  border-bottom: 1px solid #000;
+
+  outline: none;
+
+  font-size: 14px;
+  font-family: inherit;
+  background: transparent;
+
+  animation: searchInputOpen 0.4s ease-out;
+}
+
+@keyframes searchInputOpen {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 100px;
+    opacity: 1;
+  }
+}
+
+.search-input.closing {
+  animation: searchInputClose 0.25s ease-in forwards;
+}
+
+@keyframes searchInputClose {
+  from {
+    width: 100px;
+    opacity: 1;
+  }
+
+  to {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 17px 20px;
+  }
+
+  .navbar-logo h1 {
+    font-size: 24px;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-actions {
+    gap: 12px;
+  }
+
+  .search-input {
+    width: 90px;
+    box-sizing: border-box;
+  }
+
+  .navbar-actions .ham-btn {
+    display: flex;
+  }
+
+  @keyframes searchInputOpen {
+    from {
+      width: 0;
+      opacity: 0;
+    }
+
+    to {
+      width: 90px;
+      opacity: 1;
+    }
+  }
+
+  .search-input.closing {
+    animation: searchInputClose 0.25s ease-in forwards;
+  }
+
+  @keyframes searchInputClose {
+    from {
+      width: 90px;
+      opacity: 1;
+    }
+
+    to {
+      width: 0;
+      opacity: 0;
+    }
+  }
 }
