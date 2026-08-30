@@ -34,7 +34,7 @@ export function Navbar() {
     <>
       <nav className="navbar">
         <div className="navbar-logo">
-          <h1>ATHLEX</h1>
+          <h1>REWORN</h1>
         </div>
 
         <div className="navbar-links">
