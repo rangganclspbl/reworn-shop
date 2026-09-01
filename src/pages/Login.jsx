@@ -1,9 +1,14 @@
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <main className="login-page">
       <section className="login-container">
+
+        <Link to="/" className="login-back">
+          ← Back
+        </Link>
 
         {/* Logo */}
         <div className="login-logo">

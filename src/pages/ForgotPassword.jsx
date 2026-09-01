@@ -1,7 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import "./ForgotPassword.css";
 
-
 function ForgotPassword() {
+  const navigate = useNavigate();
+
+  function handleSubmit(event) {
+
+    // The form might be automatically reloading the page upon submission.
+    event.preventDefault();
+
+    navigate("/verification")
+  }
+
   return (
     <main className="forgot-page">
       <div className="forgot-container">
@@ -16,8 +26,8 @@ function ForgotPassword() {
             Enter your email address and we'll send you a verification code to
             reset your password.
           </p>
-           {/* Form */}
-          <form className="forgot-form">
+          {/* Form */}
+          <form className="forgot-form" onSubmit={handleSubmit}>
             <div className="forgot-form-group">
               <label htmlFor="email">Email</label>
 
@@ -28,7 +38,7 @@ function ForgotPassword() {
               />
             </div>
 
-            <button type="submit" className="forgot-button">
+            <button type="submit" className="forgot-button" >
               Send verification code
             </button>
           </form>

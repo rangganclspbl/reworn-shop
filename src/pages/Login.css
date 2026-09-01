@@ -60,6 +60,24 @@ body {
   z-index: 1;
 }
 
+.login-back {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.login-back:hover {
+  color: #000;
+}
+
 .login-logo {
   text-align: center;
   margin-bottom: 35px;

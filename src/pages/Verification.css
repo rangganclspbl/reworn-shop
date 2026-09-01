@@ -1,0 +1,153 @@
+.verification-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.verification-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 38px 40px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* Logo */
+
+.verification-logo {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.verification-logo h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.verification-logo span {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+/* Content */
+
+.verification-content h2 {
+  margin: 0 0 8px;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.verification-content p {
+  margin: 0 0 28px;
+  color: #777;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Form */
+
+.verification-form {
+  width: 100%;
+}
+
+.verification-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+
+.verification-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.verification-form-group input {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  box-sizing: border-box;
+
+  border: 1px solid #ccc;
+  background-color: #fff;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.verification-form-group input:focus {
+  border-color: #000;
+}
+
+/* Button */
+
+.verification-button {
+  width: 100%;
+  height: 43px;
+
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.verification-button:hover {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+/* Back to Login */
+
+.back-login {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.back-login a {
+  color: #222;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.back-login a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .verification-page {
+    padding: 20px;
+  }
+
+  .verification-container {
+    padding: 32px 25px;
+    border-radius: 16px;
+  }
+
+  .verification-content h2 {
+    font-size: 24px;
+  }
+}
