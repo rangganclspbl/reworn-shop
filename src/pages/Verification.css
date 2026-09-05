@@ -66,7 +66,28 @@
   display: flex;
   flex-direction: column;
   gap: 9px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+}
+
+.resend-button {
+  margin-bottom: 17px;
+  margin-top: 0px;
+  background: none;
+  align-self: flex-start;
+  border: none;
+  padding: 0;
+  color: #555;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.error-message {
+  margin-bottom: 10px !important;
+}
+
+.code-expiry {
+  margin: 0;
 }
 
 .verification-form-group label {
@@ -118,6 +139,8 @@
   border: 1px solid #000;
 }
 
+
+
 /* Back to Login */
 
 .back-login {
@@ -137,7 +160,7 @@
 
 /* Responsive */
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .verification-page {
     padding: 20px;
   }

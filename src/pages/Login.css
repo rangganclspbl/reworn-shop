@@ -186,6 +186,43 @@ body {
   color: #666;
 }
 
+/* Remember me + Forgot password */
+.remember-me {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: -2px;
+}
+
+.remember-me label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #444;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+  width: 11px;
+  height: 11px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.forgot-password a {
+  color: #555;
+  font-size: 11px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-password a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
 .social-login button {
   flex: 1;
   padding: 12px;
@@ -203,4 +240,114 @@ body {
   background-color: #000;
   color: #fff;
   transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    padding: 10px;
+  }
+
+  .login-container {
+    width: 100%;
+    max-width: 330px;
+    padding: 20px 18px;
+    border-radius: 16px;
+  }
+
+  /* Back */
+  .login-back {
+    margin-bottom: 16px;
+    font-size: 12px;
+  }
+
+  /* Logo */
+  .login-logo {
+    margin-bottom: 20px;
+  }
+
+  .login-logo h1 {
+    font-size: 24px;
+  }
+
+  .login-logo span {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  /* Heading */
+  .login-heading {
+    margin-bottom: 20px;
+  }
+
+  .login-heading h2 {
+    font-size: 20px;
+  }
+
+  .login-heading p {
+    font-size: 12px;
+  }
+
+  /* Form */
+  .login-form {
+    gap: 14px;
+  }
+
+  .form-group {
+    gap: 6px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .form-group input {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  /* Forgot password */
+  .forgot-password {
+    font-size: 11px;
+  }
+
+  .forgot-password a {
+    font-size: 11px;
+  }
+
+  /* Login button */
+  .login-button {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  /* Social login */
+  .social-login {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .divider {
+    margin: 4px 0;
+    gap: 10px;
+  }
+
+  .divider span {
+    font-size: 11px;
+  }
+
+  .social-login button {
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  /* Sign up */
+  .signup-link p {
+    margin-top: 18px;
+    margin-bottom: 0px;
+    font-size: 11px;
+  }
+
+  .signup-link a {
+    font-size: 11px;
+  }
 }

@@ -1,15 +1,41 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LoadingButton, ErrorMessage } from "../components/FormComponents";
 import "./ForgotPassword.css";
 
 function ForgotPassword() {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  function handleSubmit(event) {
+  function inputEmail(event) {
+    setEmail(event.target.value);
+    setError("");
+  }
 
+  async function handleSubmit(event) {
     // The form might be automatically reloading the page upon submission.
     event.preventDefault();
 
-    navigate("/verification")
+    setLoading(true);
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      const registeredEmail = "rangga@gmail.com";
+
+      if (email === registeredEmail) {
+        navigate("/verification");
+      } else {
+        setError("Email is not registered!");
+        setEmail("");
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -35,12 +61,22 @@ function ForgotPassword() {
                 type="email"
                 id="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={inputEmail}
               />
+
+              {error && (
+                <ErrorMessage onHide={() => setError("")}>{error}</ErrorMessage>
+              )}
             </div>
 
-            <button type="submit" className="forgot-button" >
+            <LoadingButton
+              type="submit"
+              loading={loading}
+              className="forgot-button"
+            >
               Send verification code
-            </button>
+            </LoadingButton>
           </form>
 
           {/* Back to Login */}
