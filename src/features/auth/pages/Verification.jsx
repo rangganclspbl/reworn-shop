@@ -1,7 +1,8 @@
 import "./Verification.css";
 import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoadingButton, ErrorMessage } from "../components/FormComponents";
+import LoadingButton from "../../../components/ui/LoadingButton";
+import ErrorMessage from "../../../components/ui/ErrorMessage";
 
 function Verification() {
   const [code, setCode] = useState("");

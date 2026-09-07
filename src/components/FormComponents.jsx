@@ -17,7 +17,7 @@ function LoadingButton({ loading, children, ...props }) {
 // Component untuk menampilkan pesan error
 function ErrorMessage({ children, onHide }) {
   useEffect(() => {
-    // Error akan hilang setelah 10 detik
+    // Error akan hilang setelah 2 detik
     const timer = setTimeout(() => {
       onHide();
     }, 2000);

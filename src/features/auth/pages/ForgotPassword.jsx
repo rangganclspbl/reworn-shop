@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoadingButton, ErrorMessage } from "../components/FormComponents";
+import LoadingButton from "../../../components/ui/LoadingButton";
+import ErrorMessage from "../../../components/ui/ErrorMessage";
 import "./ForgotPassword.css";
 
 function ForgotPassword() {

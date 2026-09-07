@@ -1,11 +1,11 @@
-import './App.css'
-import Navbar from './components/Navbar'
-import  Login  from './pages/Login'
+import '../App.css'
+import Navbar from '../components/layout/Navbar'
+import  Login  from '../features/auth/pages/Login'
 import { Routes, Route } from 'react-router-dom'
-import ForgotPassword from './pages/ForgotPassword'
-import Verification from './pages/Verification'
-import NewPassword from './pages/NewPassword'
-import Signup from './pages/Signup'
+import ForgotPassword from '../features/auth/pages/ForgotPassword'
+import Verification from '../features/auth/pages/Verification'
+import NewPassword from '../features/auth/pages/NewPassword'
+import Signup from '../features/auth/pages/Signup'
 
 function App() {
 

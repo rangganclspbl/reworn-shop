@@ -139,6 +139,10 @@ body {
   border-color: #000;
 }
 
+.error-message {
+  margin: 0px;
+}
+
 .login-button {
   width: 100%;
   padding: 12px;

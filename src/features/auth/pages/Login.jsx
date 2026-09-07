@@ -1,11 +1,15 @@
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import LoadingButton from "../../../components/ui/LoadingButton";
+import ErrorMessage from "../../../components/ui/ErrorMessage";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   function handleInput(event, setState) {
@@ -15,22 +19,25 @@ function Login() {
   async function handleSubmit(event) {
     event.preventDefault();
 
+    setLoading(true);
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
       const registeredEmail = "rangga@gmail.com";
-      const registeredPassword = "12345678";
+      const registeredPassword = "123456";
 
       if (email !== registeredEmail || password !== registeredPassword) {
-        throw new Error("Incorrect email or password.");
-      } 
-
-     console.log("Login success");
-     console.log(rememberMe);
-     navigate("/")
-
+        setError("Incorrect email or password.");
+        setEmail("");
+        setPassword("");
+        return;
+      }
+      navigate("/");
     } catch (error) {
-      console.log(error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -77,6 +84,10 @@ function Login() {
             />
           </div>
 
+          {error && (
+            <ErrorMessage className="error-message" onHide={() => setError("")}>{error}</ErrorMessage>
+          )}
+
           <div className="remember-me">
             <label>
               <input
@@ -92,9 +103,9 @@ function Login() {
             </div>
           </div>
 
-          <button className="login-button" type="submit">
+          <LoadingButton className="login-button" loading={loading} type="submit">
             Login
-          </button>
+          </LoadingButton>
         </form>
 
         {/* Social Login */}
