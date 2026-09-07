@@ -1,6 +1,6 @@
 import "./Verification.css";
 import { useEffect, useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link ,useNavigate } from "react-router-dom";
 import LoadingButton from "../../../components/ui/LoadingButton";
 import ErrorMessage from "../../../components/ui/ErrorMessage";
 
@@ -138,7 +138,7 @@ function Verification() {
           </form>
 
           <div className="back-login">
-            <a href="/login">Back to Login</a>
+            <Link to="/login">Back to Login</Link>
           </div>
         </div>
       </div>

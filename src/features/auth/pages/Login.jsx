@@ -99,7 +99,7 @@ function Login() {
             </label>
 
             <div className="forgot-password">
-              <a href="/forgot-password">Forgot password?</a>
+              <Link to="/forgot-password">Forgot password?</Link>
             </div>
           </div>
 
@@ -123,7 +123,7 @@ function Login() {
         <div className="signup-link">
           <p>
             Don't have an account?
-            <a href="/signup"> Sign up</a>
+            <Link to="/signup"> Sign up</Link>
           </p>
         </div>
       </section>

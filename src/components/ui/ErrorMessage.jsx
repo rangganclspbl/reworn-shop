@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "../FormComponents.css";
+import "./feedback.css";
 
 // Component untuk menampilkan pesan error
 function ErrorMessage({ children, onHide }) {

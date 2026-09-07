@@ -1,4 +1,4 @@
-import "../FormComponents.css";
+import "./feedback.css";
 
 function LoadingSpinner() {
   return <span className="loading-spinner"></span>;

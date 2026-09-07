@@ -1,6 +1,6 @@
 import "./NewPassword.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link ,useNavigate } from "react-router-dom";
 import LoadingButton from "../../../components/ui/LoadingButton";
 import ErrorMessage from "../../../components/ui/ErrorMessage";
 
@@ -13,7 +13,7 @@ function NewPassword() {
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
-  function inputPassword(event) {
+  function handlePasswordChange(event) {
     setPassword(event.target.value);
   }
 
@@ -76,7 +76,7 @@ function NewPassword() {
                     id="new-password"
                     placeholder="Enter your new password"
                     value={password}
-                    onChange={inputPassword}
+                    onChange={handlePasswordChange}
                   />
                 </div>
 
@@ -116,7 +116,7 @@ function NewPassword() {
               </form>
 
               <div className="back-login">
-                <a href="/login">Back to Login</a>
+                <Link to="/login">Back to Login</Link>
               </div>
             </div>
           </>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoadingButton from "../../../components/ui/LoadingButton";
 import ErrorMessage from "../../../components/ui/ErrorMessage";
 import "./ForgotPassword.css";
@@ -10,7 +10,7 @@ function ForgotPassword() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  function inputEmail(event) {
+  function handleEmailChange(event) {
     setEmail(event.target.value);
     setError("");
   }
@@ -63,7 +63,7 @@ function ForgotPassword() {
                 id="email"
                 placeholder="Enter your email"
                 value={email}
-                onChange={inputEmail}
+                onChange={handleEmailChange}
               />
 
               {error && (
@@ -82,7 +82,7 @@ function ForgotPassword() {
 
           {/* Back to Login */}
           <div className="back-login">
-            <a href="/login">Back to Login</a>
+            <Link to="/login">Back to Login</Link>
           </div>
         </div>
       </div>

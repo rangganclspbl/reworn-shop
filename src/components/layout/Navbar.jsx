@@ -1,6 +1,8 @@
 import "./Navbar.css";
 import { useState } from "react";
 import { Search, ShoppingBag, X, Menu, UserRound } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+
 
 export function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -80,9 +82,9 @@ export function Navbar() {
               </>
             )}
           </button>
-          <a href="/login" className="login-link">
+          <Link to="/login" className="login-link">
             Login
-          </a>
+          </Link>
         </div>
       </nav>
       {isMenuOpen && (
