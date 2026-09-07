@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import ForgotPassword from './pages/ForgotPassword'
 import Verification from './pages/Verification'
 import NewPassword from './pages/NewPassword'
+import Signup from './pages/Signup'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Route path='/forgot-password' element={<ForgotPassword />} />
       <Route path='/verification' element={<Verification />} />
       <Route path='new-password' element={<NewPassword />} />
+      <Route path="/signup" element={<Signup />} />
 
       <Route 
         path='/*'

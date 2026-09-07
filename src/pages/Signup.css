@@ -1,19 +1,25 @@
 body {
-    font-family: "Montserrat", sans-serif;
-    min-height: 100vh;
-    background-color: #fff;
-    margin: 0;
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  background-color: #fff;
+  margin: 0;
 }
 
-.login-page {
+.signup-page {
   min-height: 100vh;
+
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+
+  padding: 50px 20px;
+
   background-color: #fff;
+
+  box-sizing: border-box;
 }
 
-.login-container {
+.signup-container {
   width: 100%;
   max-width: 420px;
 
@@ -36,7 +42,7 @@ body {
   overflow: hidden;
 }
 
-.login-container::before {
+.signup-container::before {
   content: "";
 
   position: absolute;
@@ -55,12 +61,15 @@ body {
   pointer-events: none;
 }
 
-.login-container > * {
+.signup-container > * {
   position: relative;
   z-index: 1;
 }
 
-.login-back {
+
+/* Back */
+
+.signup-back {
   display: inline-block;
 
   margin-bottom: 20px;
@@ -74,306 +83,336 @@ body {
   transition: color 0.2s ease;
 }
 
-.login-back:hover {
+.signup-back:hover {
   color: #000;
 }
 
-.login-logo {
+
+/* Logo */
+
+.signup-logo {
   text-align: center;
   margin-bottom: 35px;
 }
 
-.login-logo h1 {
+.signup-logo h1 {
   margin: 0;
+
   font-size: 32px;
   letter-spacing: -1px;
 }
 
-.login-logo span {
+.signup-logo span {
   font-size: 13px;
   letter-spacing: 3px;
 }
 
-.login-heading {
+
+/* Heading */
+
+.signup-heading {
   margin-bottom: 30px;
 }
 
-.login-heading h2 {
+.signup-heading h2 {
   margin: 0 0 8px;
+
   font-size: 28px;
 }
 
-.login-heading p {
+.signup-heading p {
   margin: 0;
+
   color: #666;
   font-size: 14px;
 }
 
-.login-form {
+
+/* Form */
+
+.signup-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.form-group {
+.signup-form-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.form-group label {
+.signup-form-group label {
   font-size: 14px;
   font-weight: 600;
 }
 
-.form-group input {
+.signup-form-group input {
   width: 100%;
+
   padding: 13px;
+
   border: 1px solid #ccc;
+
   box-sizing: border-box;
+
+  font-family: inherit;
   font-size: 14px;
 }
 
-.form-group input:focus {
+.signup-form-group input:focus {
   outline: none;
   border-color: #000;
 }
 
-.login-button {
+
+/* Create Account Button */
+
+.signup-button {
   width: 100%;
+
   padding: 12px;
+
   background-color: #000;
   color: #fff;
+
   border: 1px solid #000;
+
+  font-family: inherit;
   font-size: 14px;
   font-weight: 600;
+
   margin-bottom: 8px;
+
   cursor: pointer;
+
   transition: all 0.2s ease;
 }
 
-.login-button:hover {
+.signup-button:hover {
   background-color: #fff;
   color: #000;
+
   border-color: #000;
+
   transform: translateY(-2px);
 }
 
-.social-login {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
 
-.divider {
+/* Divider */
+
+.signup-divider {
   display: flex;
   align-items: center;
+
   gap: 12px;
+
   margin: 8px 0;
-  grid-column: 1 / -1;
 }
 
-.divider::before,
-.divider::after {
+.signup-divider::before,
+.signup-divider::after {
   content: "";
+
   flex: 1;
+
   height: 1px;
+
   background-color: #ccc;
 }
 
-.divider span {
+.signup-divider span {
   font-size: 13px;
   color: #666;
 }
 
-.signup-link {
-  display: flex;
-  justify-content: center;
-  color: #555;
+
+/* Social Login */
+
+.signup-social {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
 }
 
-.signup-link p {
-  font-size: 11px;
-}
-
-.signup-link a {
-  color: #000000;
-
-  font-size: 11px;
-
-  text-decoration: none;
-
-  transition: color 0.2s ease;
-}
-
-.signup-link a:hover {
-  color: #555;
-
-  text-decoration: underline;
-}
-
-/* Remember me + Forgot password */
-.remember-me {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: -2px;
-}
-
-.remember-me label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #444;
-  font-size: 11px;
-  cursor: pointer;
-}
-
-.remember-me input[type="checkbox"] {
-  width: 11px;
-  height: 11px;
-  margin: 0;
-  cursor: pointer;
-}
-
-.forgot-password a {
-  color: #555;
-  font-size: 11px;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.forgot-password a:hover {
-  color: #000;
-  text-decoration: underline;
-}
-
-.social-login button {
+.signup-social button {
   flex: 1;
+
   padding: 12px;
+
   background-color: #fff;
   color: #000;
+
   border: 1px solid #000;
+
   font-family: inherit;
   font-size: 13px;
   font-weight: 600;
+
   cursor: pointer;
+
   transition: all 0.2s ease;
 }
 
-.social-login button:hover {
+.signup-social button:hover {
   background-color: #000;
   color: #fff;
+
   transform: translateY(-2px);
 }
 
+
+/* Login */
+
+.signup-login {
+  margin: 18px 0 0;
+
+  text-align: center;
+
+  font-size: 11px;
+
+  color: #666;
+}
+
+.signup-login a {
+  color: #000;
+
+  font-size: 11px;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.signup-login a:hover {
+  color: #555;
+
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
-  .login-page {
-    padding: 10px;
+  .signup-page {
+    padding: 25px 10px;
   }
 
-  .login-container {
+  .signup-container {
     width: 100%;
     max-width: 330px;
     padding: 20px 18px;
     border-radius: 16px;
   }
 
+
   /* Back */
-  .login-back {
+
+  .signup-back {
     margin-bottom: 16px;
+
     font-size: 12px;
   }
 
+
   /* Logo */
-  .login-logo {
+
+  .signup-logo {
     margin-bottom: 20px;
   }
 
-  .login-logo h1 {
+  .signup-logo h1 {
     font-size: 24px;
   }
 
-  .login-logo span {
+  .signup-logo span {
     font-size: 11px;
+
     letter-spacing: 3px;
   }
 
+
   /* Heading */
-  .login-heading {
+
+  .signup-heading {
     margin-bottom: 20px;
   }
 
-  .login-heading h2 {
+  .signup-heading h2 {
     font-size: 20px;
   }
 
-  .login-heading p {
+  .signup-heading p {
     font-size: 12px;
   }
 
+
   /* Form */
-  .login-form {
+
+  .signup-form {
     gap: 14px;
   }
 
-  .form-group {
+  .signup-form-group {
     gap: 6px;
   }
 
-  .form-group label {
+  .signup-form-group label {
     font-size: 12px;
   }
 
-  .form-group input {
+  .signup-form-group input {
     padding: 10px;
+
     font-size: 12px;
   }
 
-  /* Forgot password */
-  .forgot-password {
-    font-size: 11px;
-  }
 
-  .forgot-password a {
-    font-size: 11px;
-  }
+  /* Signup button */
 
-  /* Login button */
-  .login-button {
+  .signup-button {
     padding: 10px;
+
     font-size: 12px;
   }
 
-  /* Social login */
-  .social-login {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
 
-  .divider {
+  /* Divider */
+
+  .signup-divider {
     margin: 4px 0;
+
     gap: 10px;
   }
 
-  .divider span {
+  .signup-divider span {
     font-size: 11px;
   }
 
-  .social-login button {
+
+  /* Social Login */
+
+  .signup-social {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+  .signup-social button {
     padding: 10px;
+
     font-size: 11px;
   }
 
-  /* Sign up */
-  .signup-link p {
+
+  /* Login */
+
+  .signup-login {
     margin-top: 18px;
-    margin-bottom: 0px;
+
     font-size: 11px;
   }
 
-  .signup-link a {
+  .signup-login a {
     font-size: 11px;
   }
 }
