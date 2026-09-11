@@ -1,0 +1,41 @@
+.auth-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.auth-form-group input {
+  width: 100%;
+  padding: 13px;
+
+  border: 1px solid #ccc;
+
+  box-sizing: border-box;
+
+  font-size: 14px;
+}
+
+.auth-form-group input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+@media (max-width: 768px) {
+  .auth-form-group {
+    gap: 6px;
+  }
+
+  .auth-form-group label {
+    font-size: 12px;
+  }
+
+  .auth-form-group input {
+    padding: 10px;
+    font-size: 12px;
+  }
+}

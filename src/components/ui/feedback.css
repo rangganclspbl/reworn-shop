@@ -21,7 +21,7 @@
 }
 
 .error-message {
-  margin-bottom: 0px;
+  margin: 0px;
   color: #d00000 !important;
   font-size: 12px;
   font-weight: 500;

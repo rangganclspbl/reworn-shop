@@ -1,77 +1,7 @@
-body {
-  font-family: "Montserrat", sans-serif;
-  min-height: 100vh;
-  background-color: #fff;
-  margin: 0;
-}
-
-.signup-page {
-  min-height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-
-  padding: 50px 20px;
-
-  background-color: #fff;
-
-  box-sizing: border-box;
-}
-
-.signup-container {
-  width: 100%;
-  max-width: 420px;
-
-  padding: 40px;
-
-  background: rgba(220, 220, 220, 0.45);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 20px;
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-
-  box-sizing: border-box;
-
-  position: relative;
-  overflow: hidden;
-}
-
-.signup-container::before {
-  content: "";
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 35%;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.35),
-    rgba(255, 255, 255, 0)
-  );
-
-  pointer-events: none;
-}
-
-.signup-container > * {
-  position: relative;
-  z-index: 1;
-}
-
-
 /* Back */
 
 .signup-back {
   display: inline-block;
-
   margin-bottom: 20px;
 
   color: #555;
@@ -86,27 +16,6 @@ body {
 .signup-back:hover {
   color: #000;
 }
-
-
-/* Logo */
-
-.signup-logo {
-  text-align: center;
-  margin-bottom: 35px;
-}
-
-.signup-logo h1 {
-  margin: 0;
-
-  font-size: 32px;
-  letter-spacing: -1px;
-}
-
-.signup-logo span {
-  font-size: 13px;
-  letter-spacing: 3px;
-}
-
 
 /* Heading */
 
@@ -127,7 +36,6 @@ body {
   font-size: 14px;
 }
 
-
 /* Form */
 
 .signup-form {
@@ -136,41 +44,10 @@ body {
   gap: 20px;
 }
 
-.signup-form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.signup-form-group label {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.signup-form-group input {
-  width: 100%;
-
-  padding: 13px;
-
-  border: 1px solid #ccc;
-
-  box-sizing: border-box;
-
-  font-family: inherit;
-  font-size: 14px;
-}
-
-.signup-form-group input:focus {
-  outline: none;
-  border-color: #000;
-}
-
-
-/* Create Account Button */
+/* Signup Button */
 
 .signup-button {
   width: 100%;
-
   padding: 12px;
 
   background-color: #000;
@@ -198,8 +75,15 @@ body {
   transform: translateY(-2px);
 }
 
+/* Social Signup */
 
-/* Divider */
+.signup-social {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
 
 .signup-divider {
   display: flex;
@@ -208,6 +92,8 @@ body {
   gap: 12px;
 
   margin: 8px 0;
+
+  grid-column: 1 / -1;
 }
 
 .signup-divider::before,
@@ -226,20 +112,7 @@ body {
   color: #666;
 }
 
-
-/* Social Login */
-
-.signup-social {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 10px;
-}
-
 .signup-social button {
-  flex: 1;
-
   padding: 12px;
 
   background-color: #fff;
@@ -263,17 +136,19 @@ body {
   transform: translateY(-2px);
 }
 
-
 /* Login */
 
 .signup-login {
-  margin: 18px 0 0;
+  display: flex;
+  justify-content: center;
 
-  text-align: center;
+  margin: 0;
 
+  color: #555;
+}
+
+.signup-login {
   font-size: 11px;
-
-  color: #666;
 }
 
 .signup-login a {
@@ -292,19 +167,9 @@ body {
   text-decoration: underline;
 }
 
+/* Mobile */
+
 @media (max-width: 768px) {
-  .signup-page {
-    padding: 25px 10px;
-  }
-
-  .signup-container {
-    width: 100%;
-    max-width: 330px;
-    padding: 20px 18px;
-    border-radius: 16px;
-  }
-
-
   /* Back */
 
   .signup-back {
@@ -312,24 +177,6 @@ body {
 
     font-size: 12px;
   }
-
-
-  /* Logo */
-
-  .signup-logo {
-    margin-bottom: 20px;
-  }
-
-  .signup-logo h1 {
-    font-size: 24px;
-  }
-
-  .signup-logo span {
-    font-size: 11px;
-
-    letter-spacing: 3px;
-  }
-
 
   /* Heading */
 
@@ -345,36 +192,19 @@ body {
     font-size: 12px;
   }
 
-
   /* Form */
 
   .signup-form {
     gap: 14px;
   }
 
-  .signup-form-group {
-    gap: 6px;
-  }
-
-  .signup-form-group label {
-    font-size: 12px;
-  }
-
-  .signup-form-group input {
-    padding: 10px;
-
-    font-size: 12px;
-  }
-
-
-  /* Signup button */
+  /* Signup Button */
 
   .signup-button {
     padding: 10px;
 
     font-size: 12px;
   }
-
 
   /* Divider */
 
@@ -388,8 +218,7 @@ body {
     font-size: 11px;
   }
 
-
-  /* Social Login */
+  /* Social Signup */
 
   .signup-social {
     grid-template-columns: 1fr;
@@ -402,7 +231,6 @@ body {
 
     font-size: 11px;
   }
-
 
   /* Login */
 

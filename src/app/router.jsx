@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
-import Login from "../features/auth/pages/Login";
-import ForgotPassword from "../features/auth/pages/ForgotPassword";
-import Verification from "../features/auth/pages/Verification";
-import NewPassword from "../features/auth/pages/NewPassword";
-import Signup from "../features/auth/pages/Signup";
+import Login from "../features/auth/login/pages/LoginPage";
+import ForgotPassword from "../features/auth/forgot-password/pages/ForgotPasswordPage";
+import Verification from "../features/auth/forgot-password/pages/VerificationPage";
+import NewPassword from "../features/auth/forgot-password/pages/NewPasswordPage";
+import Signup from "../features/auth/signup/pages/SignupPage";
 
 function AppRouter() {
   return (
