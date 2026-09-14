@@ -1,6 +1,32 @@
 import { PASSWORD_RULES } from "../constants/validation";
 
+export function validateEmail(email) {
+  if (!email.trim()) {
+    return "Email is required.";
+  }
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailPattern.test(email)) {
+    return "Please enter a valid email address.";
+  }
+
+  return null;
+}
+
+export function validateRequired(value, message) {
+  if (!value.trim()) {
+    return message;
+  }
+
+  return null;
+}
+
 export function validatePassword(password) {
+  if (!password) {
+    return "Password is required.";
+  }
+
   if (password.length < PASSWORD_RULES.MIN_LENGTH) {
     return `Password must be at least ${PASSWORD_RULES.MIN_LENGTH} characters`;
   }

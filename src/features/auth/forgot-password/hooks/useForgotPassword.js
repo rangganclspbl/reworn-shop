@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { forgotPassword } from "../../services/AuthService";
 import { AUTH_ROUTES } from "../../../../constants/auth";
+import { validateEmail } from "../../../../utils/validation";
 
 function useForgotPassword() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   function handleEmailChange(event) {
@@ -15,8 +18,17 @@ function useForgotPassword() {
   }
 
   async function handleSubmit(event) {
-    // The form might be automatically reloading the page upon submission.
+    // Prevent the form from automatically reloading the page.
     event.preventDefault();
+
+    // Validate email before calling the API.
+    const emailError = validateEmail(email);
+
+    // Stop if there is a validation error.
+    if (emailError) {
+      setError(emailError);
+      return;
+    }
 
     setLoading(true);
 
@@ -39,7 +51,7 @@ function useForgotPassword() {
     loading,
     navigate,
     handleEmailChange,
-    handleSubmit
+    handleSubmit,
   };
 }
 

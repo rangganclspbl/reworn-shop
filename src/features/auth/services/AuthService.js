@@ -13,6 +13,22 @@ async function login({ email, password }) {
   };
 }
 
+async function signup({ name, email, password }) {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  // Temporary logic — will be replaced with backend API later.
+  if (!name || !email || !password) {
+    throw new Error("Name, email, and password are required.");
+  }
+
+  return {
+    success: true,
+    user: {
+      name,
+      email,
+    },
+  };
+}
+
 async function forgotPassword({ email }) {
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -64,6 +80,7 @@ async function resetPassword({ password, confirmPassword }) {
 
 export {
   login,
+  signup,
   forgotPassword,
   verifyCode,
   resetPassword,

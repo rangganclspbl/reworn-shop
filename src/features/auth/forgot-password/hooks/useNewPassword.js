@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { resetPassword } from "../../services/AuthService";
+
 import {
   validatePassword,
   validateConfirmPassword,
@@ -9,10 +11,14 @@ import {
 function useNewPassword() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
   const [error, setError] = useState("");
+
   const [showPassword, setShowPassword] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+
   const navigate = useNavigate();
 
   function handlePasswordChange(event) {
@@ -26,19 +32,22 @@ function useNewPassword() {
   async function handleSubmit(event) {
     event.preventDefault();
 
+    // Validate password
     const passwordError = validatePassword(password);
+
+    // Validate confirm password
     const confirmPasswordError = validateConfirmPassword(
       password,
-      confirmPassword,
+      confirmPassword
     );
 
+    // Stop if password validation fails
     if (passwordError) {
       setError(passwordError);
-      setPassword("");
-      setConfirmPassword("");
       return;
     }
 
+    // Stop if confirm password validation fails
     if (confirmPasswordError) {
       setError(confirmPasswordError);
       return;
@@ -47,7 +56,11 @@ function useNewPassword() {
     setLoading(true);
 
     try {
-      await resetPassword({ password, confirmPassword });
+      await resetPassword({
+        password,
+        confirmPassword,
+      });
+
       setSuccess(true);
     } catch (error) {
       setError(error.message);

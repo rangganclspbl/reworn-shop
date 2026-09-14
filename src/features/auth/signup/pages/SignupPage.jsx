@@ -1,9 +1,44 @@
 import "./SignupPage.css";
 import { Link } from "react-router-dom";
+
 import AuthLayout from "../../components/AuthLayout";
+import PasswordField from "../../components/PasswordField";
+
+import LoadingButton from "../../../../components/ui/LoadingButton";
+import ErrorMessage from "../../../../components/ui/ErrorMessage";
+
 import { AUTH_ROUTES } from "../../../../constants/auth";
+import useSignupForm from "../hooks/useSignupForm";
 
 function Signup() {
+  const {
+    name,
+    setName,
+
+    email,
+    setEmail,
+
+    password,
+    setPassword,
+
+    confirmPassword,
+    setConfirmPassword,
+
+    showPassword,
+    setShowPassword,
+
+    showConfirmPassword,
+    setShowConfirmPassword,
+
+    loading,
+
+    errors,
+    setErrors,
+
+    handleInput,
+    handleSubmit,
+  } = useSignupForm();
+
   return (
     <AuthLayout
       back={
@@ -19,7 +54,7 @@ function Signup() {
       </div>
 
       {/* Signup Form */}
-      <form className="signup-form">
+      <form className="signup-form" onSubmit={handleSubmit}>
         {/* Full Name */}
         <div className="auth-form-group">
           <label htmlFor="name">Full name</label>
@@ -28,7 +63,22 @@ function Signup() {
             type="text"
             id="name"
             placeholder="Enter your full name"
+            value={name}
+            onChange={(event) => handleInput(event, setName)}
           />
+
+          {errors.name && (
+            <ErrorMessage
+              onHide={() =>
+                setErrors((prev) => ({
+                  ...prev,
+                  name: "",
+                }))
+              }
+            >
+              {errors.name}
+            </ErrorMessage>
+          )}
         </div>
 
         {/* Email */}
@@ -39,37 +89,98 @@ function Signup() {
             type="email"
             id="email"
             placeholder="Enter your email"
+            value={email}
+            onChange={(event) => handleInput(event, setEmail)}
           />
+
+          {errors.email && (
+            <ErrorMessage
+              onHide={() =>
+                setErrors((prev) => ({
+                  ...prev,
+                  email: "",
+                }))
+              }
+            >
+              {errors.email}
+            </ErrorMessage>
+          )}
         </div>
 
         {/* Password */}
-        <div className="auth-form-group">
-          <label htmlFor="password">Password</label>
+        <PasswordField
+          id="password"
+          label="Password"
+          placeholder="Create a password"
+          value={password}
+          onChange={(event) => handleInput(event, setPassword)}
+          showPassword={showPassword}
+          onToggleVisibility={() => setShowPassword(!showPassword)}
+          showToggle={true}
+        />
 
-          <input
-            type="password"
-            id="password"
-            placeholder="Create a password"
-          />
-        </div>
+        {errors.password && (
+          <ErrorMessage
+            onHide={() =>
+              setErrors((prev) => ({
+                ...prev,
+                password: "",
+              }))
+            }
+          >
+            {errors.password}
+          </ErrorMessage>
+        )}
 
         {/* Confirm Password */}
-        <div className="auth-form-group">
-          <label htmlFor="confirm-password">
-            Confirm password
-          </label>
+        <PasswordField
+          id="confirm-password"
+          label="Confirm password"
+          placeholder="Confirm your password"
+          value={confirmPassword}
+          onChange={(event) => handleInput(event, setConfirmPassword)}
+          showPassword={showConfirmPassword}
+          onToggleVisibility={() =>
+            setShowConfirmPassword(!showConfirmPassword)
+          }
+          showToggle={true}
+        />
 
-          <input
-            type="password"
-            id="confirm-password"
-            placeholder="Confirm your password"
-          />
-        </div>
+        {errors.confirmPassword && (
+          <ErrorMessage
+            onHide={() =>
+              setErrors((prev) => ({
+                ...prev,
+                confirmPassword: "",
+              }))
+            }
+          >
+            {errors.confirmPassword}
+          </ErrorMessage>
+        )}
+
+        {/* General Error */}
+        {errors.general && (
+          <ErrorMessage
+            onHide={() =>
+              setErrors((prev) => ({
+                ...prev,
+                general: "",
+              }))
+            }
+          >
+            {errors.general}
+          </ErrorMessage>
+        )}
 
         {/* Create Account */}
-        <button type="submit" className="signup-button">
+        <LoadingButton
+          type="submit"
+          className="signup-button"
+          loading={loading}
+        >
           Create account
-        </button>
+        </LoadingButton>
       </form>
 
       {/* Social Login */}
@@ -78,13 +189,9 @@ function Signup() {
           <span>OR</span>
         </div>
 
-        <button type="button">
-          Continue with Google
-        </button>
+        <button type="button">Continue with Google</button>
 
-        <button type="button">
-          Continue with Facebook
-        </button>
+        <button type="button">Continue with Facebook</button>
       </div>
 
       {/* Login */}

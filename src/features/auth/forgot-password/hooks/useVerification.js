@@ -1,8 +1,17 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { verifyCode } from "../../services/AuthService";
-import { resendVerificationCode } from "../../services/AuthService";
-import { AUTH_ROUTES, VERIFICATION_CODE_EXPIRY } from "../../../../constants/auth";
+
+import {
+  verifyCode,
+  resendVerificationCode,
+} from "../../services/AuthService";
+
+import {
+  AUTH_ROUTES,
+  VERIFICATION_CODE_EXPIRY,
+} from "../../../../constants/auth";
+
+import { validateRequired } from "../../../../utils/validation";
 
 function useVerification() {
   const [code, setCode] = useState("");
@@ -10,6 +19,7 @@ function useVerification() {
   const [isResending, setIsResending] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,17 +44,29 @@ function useVerification() {
 
   function handleCodeChange(event) {
     setCode(event.target.value);
+    setError("");
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    setError("");
+    // Validate verification code
+    const codeError = validateRequired(
+      code,
+      "Verification code is required."
+    );
+
+    // Stop if there is a validation error
+    if (codeError) {
+      setError(codeError);
+      return;
+    }
 
     setLoading(true);
 
     try {
       await verifyCode({ code });
+
       navigate(AUTH_ROUTES.NEW_PASSWORD);
     } catch (error) {
       setError(error.message);
@@ -55,11 +77,11 @@ function useVerification() {
 
   async function handleResend() {
     setError("");
-
     setIsResending(true);
 
     try {
       await resendVerificationCode();
+
       setTimeLeft(VERIFICATION_CODE_EXPIRY);
     } catch (error) {
       setError(error.message);
