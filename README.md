@@ -1,16 +1,41 @@
-# React + Vite
+# REWORN SHOP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+REWORN SHOP is a second-hand clothing e-commerce website that I'm building as a portfolio project.
 
-Currently, two official plugins are available:
+The project is built with React and JavaScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React
+- Vite
+- JavaScript
+- CSS
+- React Router
+- Git & GitHub
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Login & Sign Up
+- Forgot Password
+- Verification Code
+- Reset Password
+- Form Validation
+- Loading States
+- Error Handling
+- Responsive Layout
+- Cart UI
+- Profile/Login Navigation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The authentication flow is currently frontend-only and will be connected to a backend later.
+
+## Project Structure
+
+```text
+src/
+├── app/
+├── components/
+├── constants/
+├── features/
+│   └── auth/
+├── styles/
+└── utils/
