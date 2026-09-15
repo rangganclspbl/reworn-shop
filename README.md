@@ -23,8 +23,12 @@ The project is built with React and JavaScript.
 - Loading States
 - Error Handling
 - Responsive Layout
-- Cart UI
-- Profile/Login Navigation
+- Responsive Navbar
+- Search Bar
+- Category Navigation
+- Mega Menu
+- Mobile Navigation Menu
+- Cart Navigation
 
 The authentication flow is currently frontend only and will be connected to a backend later.
 
