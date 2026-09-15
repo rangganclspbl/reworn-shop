@@ -26,7 +26,7 @@ The project is built with React and JavaScript.
 - Cart UI
 - Profile/Login Navigation
 
-The authentication flow is currently frontend-only and will be connected to a backend later.
+The authentication flow is currently frontend only and will be connected to a backend later.
 
 ## Project Structure
 
