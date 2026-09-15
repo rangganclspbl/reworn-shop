@@ -1,0 +1,553 @@
+/* ================================
+   Navbar
+================================ */
+
+.navbar {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  z-index: 100;
+}
+
+.navbar > .container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================
+   Top Navbar
+================================ */
+
+.navbar-top {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* ================================
+   Logo
+================================ */
+
+.navbar-logo {
+  flex-shrink: 0;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ================================
+   Desktop Search
+================================ */
+
+.navbar-search {
+  width: 100%;
+  max-width: 480px;
+  height: 40px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 0 14px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.navbar-search:focus-within {
+  background-color: #fff;
+  border-color: #000;
+}
+
+.navbar-search svg {
+  flex-shrink: 0;
+  color: #555;
+}
+
+.navbar-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #000;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.navbar-search input::placeholder {
+  color: #888;
+}
+
+/* ================================
+   Desktop Actions
+================================ */
+
+.navbar-actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #000;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cart-link:hover {
+  color: #555;
+}
+
+.login-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 9px 14px;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.login-link:hover {
+  background-color: #fff;
+  color: #000;
+  border-color: #000;
+  transform: translateY(-2px);
+}
+
+/* ================================
+   Desktop Category Navigation
+================================ */
+
+.category-nav {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.category-nav > a,
+.category-item > a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  color: #444;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.category-nav > a:hover,
+.category-item > a:hover {
+  color: #000;
+}
+
+.category-nav > a::after,
+.category-item > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 11px;
+  width: 0;
+  height: 1px;
+  background-color: #000;
+  transition: width 0.2s ease;
+}
+
+.category-nav > a:hover::after,
+.category-item > a:hover::after {
+  width: 100%;
+}
+
+.category-item {
+  position: relative;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.sale-link {
+  font-weight: 600 !important;
+}
+
+/* ================================
+   Mega Menu
+================================ */
+
+.mega-menu {
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(850px, 90vw);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+  padding: 28px 30px;
+  background-color: rgba(255, 255, 255, 0.97);
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  z-index: 110;
+}
+
+.mega-menu-column {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.mega-menu-column h4 {
+  margin: 0 0 6px;
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mega-menu-column a {
+  color: #666;
+  font-size: 11px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mega-menu-column a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* ================================
+   Mobile Search
+================================ */
+
+.mobile-search {
+  display: none;
+}
+
+/* ================================
+   Mobile Menu Button
+================================ */
+
+.menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  background-color: transparent;
+  color: #000;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menu-button:hover {
+  border-color: #000;
+}
+
+/* ================================
+   Mobile Category Navigation
+================================ */
+
+.mobile-category-nav {
+  display: none;
+}
+
+/* ================================
+   Mobile Menu
+================================ */
+
+.mobile-menu {
+  display: none;
+}
+
+/* ================================
+   Responsive
+================================ */
+
+@media (max-width: 768px) {
+  /* ================================
+     Navbar
+  ================================ */
+
+  .navbar {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .navbar-top {
+    min-height: 58px;
+    gap: 15px;
+  }
+
+  /* ================================
+     Logo
+  ================================ */
+
+  .navbar-logo {
+    font-size: 17px;
+    letter-spacing: -0.4px;
+  }
+
+  /* ================================
+     Hide Desktop Search
+  ================================ */
+
+  .navbar-top > .navbar-search {
+    display: none;
+  }
+
+  /* ================================
+     Hide Desktop Actions
+  ================================ */
+
+  .navbar-actions {
+    display: none;
+  }
+
+  /* ================================
+     Show Menu Button
+  ================================ */
+
+  .menu-button {
+    display: flex;
+    margin-left: auto;
+  }
+
+  /* ================================
+     Mobile Search
+  ================================ */
+
+  .mobile-search {
+    width: 100%;
+    max-width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 12px;
+    padding: 0 13px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .mobile-search:focus-within {
+    background-color: #fff;
+    border-color: #000;
+  }
+
+  .mobile-search svg {
+    flex-shrink: 0;
+    color: #555;
+  }
+
+  .mobile-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #000;
+    font-family: inherit;
+    font-size: 12px;
+  }
+
+  .mobile-search input::placeholder {
+    color: #888;
+  }
+
+  /* ================================
+     Mobile Categories
+  ================================ */
+
+  .mobile-category-nav {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+    box-sizing: border-box;
+  }
+
+  .mobile-category-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-category-nav a {
+    position: relative;
+    flex-shrink: 0;
+    color: #555;
+    font-size: 11px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-category-nav a:hover {
+    color: #000;
+  }
+
+  .mobile-category-nav a.active {
+    color: #000;
+    font-weight: 600;
+  }
+
+  .mobile-category-nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 1px;
+    background-color: #000;
+  }
+
+  /* ================================
+     Mobile Menu
+  ================================ */
+
+  .mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: block;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    z-index: 90;
+  }
+
+  .mobile-menu .container {
+    padding-top: 22px;
+    padding-bottom: 28px;
+  }
+
+  /* ================================
+     Menu Actions
+  ================================ */
+
+  .mobile-menu-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .add-product-button,
+  .mobile-login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 9px 12px;
+    box-sizing: border-box;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .add-product-button {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+  }
+
+  .add-product-button:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+    transform: translateY(-2px);
+  }
+
+  .mobile-login-button {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+  }
+
+  .mobile-login-button:hover {
+    background-color: #000;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* ================================
+     Menu Sections
+  ================================ */
+
+  .mobile-menu-section {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding: 22px 0;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .mobile-menu-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .mobile-menu-section p {
+    margin: 0 0 3px;
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .mobile-menu-section a {
+    color: #555;
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-menu-section a:hover {
+    color: #000;
+  }
+
+  /* ================================
+     Hide Desktop Category Navigation
+  ================================ */
+
+  .category-nav {
+    display: none;
+  }
+}

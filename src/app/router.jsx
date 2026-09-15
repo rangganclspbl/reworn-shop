@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "../components/layout/Navbar";
+import Navbar from "../components/layout/navbar/Navbar";
 import Login from "../features/auth/login/pages/LoginPage";
 import ForgotPassword from "../features/auth/forgot-password/pages/ForgotPasswordPage";
 import Verification from "../features/auth/forgot-password/pages/VerificationPage";
