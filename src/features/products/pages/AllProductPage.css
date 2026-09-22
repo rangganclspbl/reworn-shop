@@ -1,0 +1,38 @@
+.all-products-page {
+  padding: 48px 0 80px;
+}
+
+.all-products-header {
+  margin-bottom: 32px;
+}
+
+.all-products-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #777;
+}
+
+.all-products-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  color: #222;
+}
+
+.all-products-header p:last-child {
+  margin: 10px 0 0;
+  color: #777;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .all-products-page {
+    padding: 32px 0 56px;
+  }
+
+  .all-products-header h1 {
+    font-size: 26px;
+  }
+}

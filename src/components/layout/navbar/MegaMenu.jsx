@@ -12,13 +12,17 @@ function MegaMenu({ category }) {
           <h4>{column.title}</h4>
 
           {column.items.map((item) => {
-            const itemSlug = item.toLowerCase().replace(/\s+/g, "-");
+            const itemSlug = item
+              .toLowerCase()
+              .replace(/\s+/g, "-");
+
+            const itemPath =
+              category.slug === "branded"
+                ? `/category/${category.slug}?brand=${encodeURIComponent(item)}`
+                : `/category/${category.slug}/${itemSlug}`;
 
             return (
-              <Link
-                key={item}
-                to={`/category/${category.slug}/${itemSlug}`}
-              >
+              <Link key={item} to={itemPath}>
                 {item}
               </Link>
             );
