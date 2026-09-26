@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./ProductCard.css";
 
 function ProductCard({ product }) {
@@ -7,7 +9,10 @@ function ProductCard({ product }) {
   }).format(product.price);
 
   return (
-    <article className="product-card">
+    <Link
+      to={`/products/${product.id}`}
+      className="product-card"
+    >
       <div className="product-card-image">
         <img
           src={product.image}
@@ -32,7 +37,7 @@ function ProductCard({ product }) {
           {formattedPrice}
         </p>
       </div>
-    </article>
+    </Link>
   );
 }
 

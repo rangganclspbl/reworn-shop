@@ -8,6 +8,7 @@ import Verification from "../features/auth/forgot-password/pages/VerificationPag
 import NewPassword from "../features/auth/forgot-password/pages/NewPasswordPage";
 import Signup from "../features/auth/signup/pages/SignupPage";
 import CategoryPage from "../features/products/pages/CategoryPage";
+import ProductDetailPage from "../features/products/pages/ProductDetail/ProductDetailPage";
 
 function AppRouter() {
   return (
@@ -21,6 +22,7 @@ function AppRouter() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<AllProductsPage />} />
+        <Route path="/products/:productId" element={<ProductDetailPage />} />
         <Route
           path="/category/:category/:subcategory"
           element={<CategoryPage />}
