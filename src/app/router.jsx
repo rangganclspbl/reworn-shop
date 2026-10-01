@@ -9,6 +9,7 @@ import NewPassword from "../features/auth/forgot-password/pages/NewPasswordPage"
 import Signup from "../features/auth/signup/pages/SignupPage";
 import CategoryPage from "../features/products/pages/CategoryPage";
 import ProductDetailPage from "../features/products/pages/ProductDetail/ProductDetailPage";
+import CartPage from "../features/cart/pages/CartPage";
 
 function AppRouter() {
   return (
@@ -18,6 +19,7 @@ function AppRouter() {
       <Route path="/verification" element={<Verification />} />
       <Route path="/new-password" element={<NewPassword />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/cart" element={<CartPage/>} />
 
       <Route element={<MainLayout />}>
         <Route path="/" element={<HomePage />} />
