@@ -1,0 +1,50 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb-link {
+  color: #777;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+  color: #111;
+}
+
+.breadcrumb-separator {
+  color: #b5b5b5;
+  user-select: none;
+}
+
+.breadcrumb-current {
+  color: #111;
+  font-weight: 500;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .breadcrumb {
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .breadcrumb-item {
+    gap: 6px;
+  }
+}
