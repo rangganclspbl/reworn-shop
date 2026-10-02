@@ -1,0 +1,24 @@
+.product-detail-page {
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 24px 32px 80px;
+}
+
+.product-detail-page .breadcrumb {
+  max-width: 1200px;
+  margin: 0 auto 24px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .product-detail-page {
+    padding: 20px 16px 48px;
+  }
+
+  .product-detail-page .breadcrumb {
+    margin-bottom: 20px;
+  }
+}
