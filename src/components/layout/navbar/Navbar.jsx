@@ -1,11 +1,11 @@
 import "./Navbar.css";
 import { ShoppingBag, X, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
-
 import useNavbar from "./hooks/useNavbar";
 import SearchBar from "./SearchBar";
 import CategoryNav from "./CategoryNav";
 import MobileMenu from "./MobileMenu";
+import useCart from "../../../features/cart/hooks/useCart";
 
 function Navbar() {
   const {
@@ -18,6 +18,8 @@ function Navbar() {
     toggleMenu,
     closeMenu,
   } = useNavbar();
+
+  const { cartProducts } = useCart();
 
   return (
     <header className="navbar">
@@ -39,15 +41,21 @@ function Navbar() {
           {/* Desktop Actions */}
 
           <div className="navbar-actions">
-            <Link to="/cart" className="cart-link">
-              <ShoppingBag size={21} strokeWidth={2} />
-              <span>Cart</span>
-            </Link>
-
             <Link to="/login" className="login-link">
               Login
             </Link>
           </div>
+
+          <Link to="/cart" className="cart-link">
+            <span className="cart-icon">
+              <ShoppingBag size={21} strokeWidth={2} />
+
+              {cartProducts.length > 0 && (
+                <span className="cart-badge">{cartProducts.length}</span>
+              )}
+            </span>
+            <span>Cart</span>
+          </Link>
 
           {/* Mobile Menu Button */}
 
@@ -91,21 +99,13 @@ function Navbar() {
               All
             </Link>
 
-            <Link to="/category/women">
-              Women
-            </Link>
+            <Link to="/category/women">Women</Link>
 
-            <Link to="/category/men">
-              Men
-            </Link>
+            <Link to="/category/men">Men</Link>
 
-            <Link to="/category/kids">
-              Kids
-            </Link>
+            <Link to="/category/kids">Kids</Link>
 
-            <Link to="/category/entertainment">
-              Entertainment
-            </Link>
+            <Link to="/category/entertainment">Entertainment</Link>
           </nav>
         )}
       </div>

@@ -10,28 +10,31 @@ import Signup from "../features/auth/signup/pages/SignupPage";
 import CategoryPage from "../features/products/pages/CategoryPage";
 import ProductDetailPage from "../features/products/pages/ProductDetail/ProductDetailPage";
 import CartPage from "../features/cart/pages/CartPage";
+import CartProvider from "../features/cart/context/CartContext.jsx";
 
 function AppRouter() {
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/verification" element={<Verification />} />
-      <Route path="/new-password" element={<NewPassword />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/cart" element={<CartPage/>} />
+    <CartProvider>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verification" element={<Verification />} />
+        <Route path="/new-password" element={<NewPassword />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/cart" element={<CartPage />} />
 
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<AllProductsPage />} />
-        <Route path="/products/:productId" element={<ProductDetailPage />} />
-        <Route
-          path="/category/:category/:subcategory"
-          element={<CategoryPage />}
-        />
-        <Route path="/category/:category" element={<CategoryPage />} />
-      </Route>
-    </Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<AllProductsPage />} />
+          <Route path="/products/:productId" element={<ProductDetailPage />} />
+          <Route
+            path="/category/:category/:subcategory"
+            element={<CategoryPage />}
+          />
+          <Route path="/category/:category" element={<CategoryPage />} />
+        </Route>
+      </Routes>
+    </CartProvider>
   );
 }
 
