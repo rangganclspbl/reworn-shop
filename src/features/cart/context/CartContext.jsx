@@ -3,11 +3,7 @@ import CartContext from "./CartContext";
 import products from "../../products/data/products";
 
 function CartProvider({ children }) {
-  const [cartProductIds, setCartProductIds] = useState([
-    "prd_001",
-    "prd_003",
-    "prd_012",
-  ]);
+  const [cartProductIds, setCartProductIds] = useState([]);
 
   const cartProducts = cartProductIds
     .map((id) => products.find((product) => product.id === id))

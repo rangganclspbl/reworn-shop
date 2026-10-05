@@ -16,6 +16,66 @@
   font-weight: 600;
 }
 
+.cart-empty-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(400px, calc(100% - 40px));
+  padding: 32px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  transform: translate(-50%, -50%);
+  z-index: 21;
+}
+
+.cart-empty-message h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cart-empty-message p {
+  margin: 0 0 24px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cart-empty-message button {
+  min-width: 90px;
+  min-height: 40px;
+  padding: 0 20px;
+  border: 1px solid #111;
+  background: #111;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cart-empty-message button:hover {
+  background: #fff;
+  color: #111;
+  transform: translateY(-2px);
+}
+
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 20;
+}
+
 .cart-items {
   display: flex;
   flex-direction: column;
@@ -65,6 +125,52 @@
 .cart-checkout-button:hover {
   background-color: #ffffff;
   color: #111;
+}
+
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.cart-empty h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.cart-empty p {
+  margin: 0 0 24px;
+  color: #666;
+  font-size: 14px;
+}
+
+.cart-empty a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 24px;
+  border: 1px solid #111;
+  background: #111;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cart-empty a:hover {
+  background: #fff;
+  color: #111;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
