@@ -160,12 +160,26 @@
 .product-detail-cart-button.is-adding {
   cursor: wait;
   opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-detail-cart-button.is-adding:disabled {
+  background: #111;
+  border-color: #111;
+  color: #fff;
+  opacity: 1;
 }
 
 .product-detail-actions button.product-detail-cart-button.is-added {
-  background: #2e7d32;
+    background: #2e7d32;
   border-color: #2e7d32;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
 }
 
 .product-detail-actions button.product-detail-cart-button.is-added:hover {

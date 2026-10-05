@@ -2,6 +2,8 @@ import "./ProductDetail.css";
 import formatLabel from "../../../../utils/formatLabel";
 import useCart from "../../../cart/hooks/useCart";
 import useAddToCart from "../../../cart/hooks/useAddToCart";
+import LoadingButton from "../../../../components/ui/LoadingButton";
+import { Check } from "lucide-react";
 
 function ProductDetail({ product }) {
   const formattedPrice = new Intl.NumberFormat("en-US", {
@@ -48,8 +50,9 @@ function ProductDetail({ product }) {
         </div>
 
         <div className="product-detail-actions">
-          <button
-            type="button"
+          <LoadingButton
+            loading={isAdding}
+            type="submit"
             className={`product-detail-cart-button ${
               isAdding ? "is-adding" : ""
             } ${isAdded ? "is-added" : ""}`}
@@ -61,14 +64,17 @@ function ProductDetail({ product }) {
               }
             }}
           >
-            {isAdding
-              ? "Loading..."
-              : isAdded
-                ? "Added to Cart"
-                : isInCart
-                  ? "Remove from Cart"
-                  : "Add to Cart"}
-          </button>
+            {isAdded ? (
+              <>
+                <Check size={16} strokeWidth={2.5} />
+                Added to cart
+              </>
+            ) : isInCart ? (
+              "Remove from Cart"
+            ) : (
+              "Add to Cart"
+            )}
+          </LoadingButton>
 
           <button type="button">Buy Now</button>
 
