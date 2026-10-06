@@ -5,7 +5,7 @@ import useCart from "../hooks/useCart";
 import { Link } from "react-router-dom";
 
 function CartPage() {
-  const { cartProducts, total, removeFromCart } = useCart();
+  const { cartProducts, total, removeFromCart, selectedProductIds, toggleProductSelection } = useCart();
   const [showEmptyCartMessage, setShowEmptyCartMessage] = useState(false);
 
   function handleCheckout() {
@@ -19,11 +19,14 @@ function CartPage() {
   return (
     <main className="cart-page">
       <div className="cart-container">
+        <Link to="/products" className="cart-back-link">
+          ← Continue Shopping
+        </Link>
         <h1>Shopping Cart</h1>
         {showEmptyCartMessage && (
           <>
             <div className="cart-overlay"></div>
-            
+
             <div className="cart-empty-message">
               <h2>Your cart is empty</h2>
               <p>Add an item before proceeding to checkout.</p>
@@ -39,7 +42,7 @@ function CartPage() {
         <section className="cart-items">
           {cartProducts.length > 0 ? (
             cartProducts.map((product) => (
-              <CartItem key={product.id} product={product} onRemove={removeFromCart} />
+              <CartItem key={product.id} product={product} onRemove={removeFromCart} isSelected={selectedProductIds.includes(product.id)} onToggle={toggleProductSelection} />
             ))
           ) : (
             <div className="cart-empty">

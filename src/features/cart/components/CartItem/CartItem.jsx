@@ -1,8 +1,11 @@
 import "./CartItem.css";
 
-function CartItem({ product, onRemove }) {
+function CartItem({ product, onRemove, isSelected, onToggle }) {
   return (
     <div className="cart-item">
+      <div className="cart-item-checkbox">
+        <input type="checkbox" checked={isSelected} onChange={() => onToggle(product.id)} />
+      </div>
       <div className="cart-item-image">
         <img src={product.image} alt={product.name} />
       </div>
