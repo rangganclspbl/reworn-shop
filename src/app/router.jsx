@@ -11,6 +11,7 @@ import CategoryPage from "../features/products/pages/CategoryPage";
 import ProductDetailPage from "../features/products/pages/ProductDetail/ProductDetailPage";
 import CartPage from "../features/cart/pages/CartPage";
 import CartProvider from "../features/cart/context/CartContext.jsx";
+import CheckoutPage from "../features/checkout/pages/CheckoutPage/CheckoutPage.jsx";
 
 function AppRouter() {
   return (
@@ -22,6 +23,7 @@ function AppRouter() {
         <Route path="/new-password" element={<NewPassword />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
 
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />

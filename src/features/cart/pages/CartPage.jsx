@@ -2,17 +2,21 @@ import CartItem from "../components/CartItem/CartItem";
 import { useState } from "react";
 import "./CartPage.css";
 import useCart from "../hooks/useCart";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function CartPage() {
   const { cartProducts, total, removeFromCart, selectedProductIds, toggleProductSelection } = useCart();
-  const [showEmptyCartMessage, setShowEmptyCartMessage] = useState(false);
+  const [message, setMessage] = useState(null);
+  const navigate = useNavigate();
 
   function handleCheckout() {
     if (cartProducts.length === 0) {
-      setShowEmptyCartMessage(true);
+      setMessage("empty");
+    }
+    else if (selectedProductIds.length === 0) {
+      setMessage("not-selected");
     } else {
-      console.log("Proceed to checkout")
+      navigate("/checkout");
     }
   }
 
@@ -23,15 +27,17 @@ function CartPage() {
           ← Continue Shopping
         </Link>
         <h1>Shopping Cart</h1>
-        {showEmptyCartMessage && (
+        {message && (
           <>
             <div className="cart-overlay"></div>
 
             <div className="cart-empty-message">
-              <h2>Your cart is empty</h2>
-              <p>Add an item before proceeding to checkout.</p>
+              <h2>
+                {message === "empty" ? "Your cart is empty" : "No product selected"}
+              </h2>
+              <p>{message === "empty" ? "Looks like you haven't added anything yet." : "Please select at least one product before proceeding to checkout"}</p>
 
-              <button onClick={() => { setShowEmptyCartMessage(false) }}>
+              <button onClick={() => { setMessage(null) }}>
                 OKE
               </button>
             </div>

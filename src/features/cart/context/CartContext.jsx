@@ -9,7 +9,7 @@ function CartProvider({ children }) {
   const cartProducts = cartProductIds
     .map((id) => products.find((product) => product.id === id))
     .filter(Boolean);
-  
+
   const selectedProduct = cartProducts.filter((product) => {
     return selectedProductIds.includes(product.id)
   })
@@ -49,7 +49,7 @@ function CartProvider({ children }) {
   }
 
   return (
-    <CartContext.Provider value={{ cartProductIds, removeFromCart, addToCart, toggleProductSelection, selectedProductIds, total, cartProducts }}>
+    <CartContext.Provider value={{ cartProductIds, removeFromCart, addToCart, toggleProductSelection, selectedProductIds, total, cartProducts, selectedProduct }}>
       {children}
     </CartContext.Provider>
   );

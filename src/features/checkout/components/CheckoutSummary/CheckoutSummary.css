@@ -1,0 +1,166 @@
+.checkout-summary h2 {
+  margin: 0 0 32px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Product */
+.list-product {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  column-gap: 20px;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.image-item {
+  width: 100px;
+  height: 125px;
+  overflow: hidden;
+  background: #f3f3f3;
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Product content */
+.product-content {
+  min-width: 0;
+}
+
+.product-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.product-info {
+  min-width: 0;
+}
+
+.product-info h3 {
+  margin: 0 0 7px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.product-info p {
+  margin: 0;
+  color: #777;
+  font-size: 13px;
+}
+
+.product-price {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Seller note */
+.seller-note {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.seller-note span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #555;
+}
+
+.seller-note textarea {
+  width: 100%;
+  max-width: 500px;
+  min-height: 72px;
+  padding: 11px 12px;
+  box-sizing: border-box;
+  resize: vertical;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+  background: #fafafa;
+  color: #111;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.seller-note textarea:focus {
+  border-color: #111;
+  background: #fff;
+}
+
+/* Total */
+.price-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+}
+
+.price-total span {
+  font-size: 14px;
+  color: #666;
+}
+
+.price-total strong {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .checkout-summary h2 {
+    margin-bottom: 24px;
+  }
+
+  .list-product {
+    grid-template-columns: 80px minmax(0, 1fr);
+    column-gap: 14px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+  }
+
+  .image-item {
+    width: 80px;
+    height: 105px;
+  }
+
+  .product-header {
+    gap: 12px;
+  }
+
+  .product-info h3 {
+    font-size: 14px;
+  }
+
+  .product-info p {
+    font-size: 12px;
+  }
+
+  .product-price {
+    font-size: 13px;
+  }
+
+  .seller-note {
+    margin-top: 20px;
+  }
+
+  .seller-note textarea {
+    width: 100%;
+    max-width: none;
+    min-height: 68px;
+  }
+
+}
