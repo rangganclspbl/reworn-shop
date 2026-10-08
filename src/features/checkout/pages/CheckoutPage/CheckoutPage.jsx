@@ -1,6 +1,8 @@
 import "./CheckoutPage.css";
 import useCart from "../../../cart/hooks/useCart";
 import CheckoutSummary from "../../components/CheckoutSummary/CheckoutSummary";
+import ShippingAddress from "../../components/ShippingAddress/ShippingAddress";
+import Payment from "../../components/Payment/Payment";
 
 function CheckoutPage() {
   const { selectedProduct, total } = useCart();
@@ -22,11 +24,11 @@ function CheckoutPage() {
         </div>
 
         <div className="checkout-right">
-          <div className="shipping-section">
-            <h2>Shipping</h2>
+          <div className="shipping-address-section">
+            <ShippingAddress />
           </div>
-          <div className="price-summary">
-            <h2>Summary</h2>
+          <div className="payment-summary-section">
+            <Payment />
           </div>
         </div>
       </div>

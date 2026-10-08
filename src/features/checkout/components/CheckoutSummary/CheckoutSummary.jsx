@@ -25,6 +25,42 @@ function CheckoutSummary({ selectedProduct, total }) {
               <span>Note for seller</span>
               <textarea></textarea>
             </div>
+
+            <div className="product-shipping">
+              <span className="shipping-title">Shipping</span>
+              <div className="shipping-options">
+                <label className="shipping-option">
+                  <input
+                    type="radio"
+                    name="shipping-[product id]"
+                    value="regular"
+                  />
+                  <div className="shipping-info">
+                    <span className="shipping-name">Regular</span>
+                    <span className="shipping-estimate">
+                      Estimated 3-5 days
+                    </span>
+                  </div>
+                  <span className="shipping-price">$5</span>
+                </label>
+
+                <label className="shipping-option">
+                  <input
+                    type="radio"
+                    name="shipping-[product id]"
+                    value="express"
+                  />
+                  <div className="shipping-info">
+                    <span className="shipping-name">Express</span>
+                    <span className="shipping-estimate">
+                      Estimated 1-2 days
+                    </span>
+                  </div>
+                  <span className="shipping-price">$10</span>
+                </label>
+              </div>
+            </div>
+            
           </div>
         </div>
       ))}
