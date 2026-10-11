@@ -1,6 +1,6 @@
 import "./CheckoutSummary.css";
 
-function CheckoutSummary({ selectedProduct, total }) {
+function CheckoutSummary({ selectedProduct, total, shippingSelections, onShippingChange }) { 
   return (
     <div className="checkout-summary">
       <h2>Order Summary</h2>
@@ -32,8 +32,10 @@ function CheckoutSummary({ selectedProduct, total }) {
                 <label className="shipping-option">
                   <input
                     type="radio"
-                    name="shipping-[product id]"
+                    name={`shipping-${product.id}`}
                     value="regular"
+                    checked={shippingSelections[product.id] === "regular"}
+                    onChange={() => onShippingChange(product.id, "regular")}
                   />
                   <div className="shipping-info">
                     <span className="shipping-name">Regular</span>
@@ -47,8 +49,10 @@ function CheckoutSummary({ selectedProduct, total }) {
                 <label className="shipping-option">
                   <input
                     type="radio"
-                    name="shipping-[product id]"
+                    name={`shipping-${product.id}`}
                     value="express"
+                    checked={shippingSelections[product.id] === "express"}
+                    onChange={() => onShippingChange(product.id, "express")}
                   />
                   <div className="shipping-info">
                     <span className="shipping-name">Express</span>

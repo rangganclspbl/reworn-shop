@@ -3,12 +3,14 @@ import useCart from "../../../cart/hooks/useCart";
 import CheckoutSummary from "../../components/CheckoutSummary/CheckoutSummary";
 import ShippingAddress from "../../components/ShippingAddress/ShippingAddress";
 import Payment from "../../components/Payment/Payment";
+import useCheckout from "../../hooks/useCheckout";
 
 function CheckoutPage() {
   const { selectedProduct, total } = useCart();
+  const { shippingSelections, handleShippingChange } = useCheckout();
 
   return (
-    <div className="checkout-page">
+    <main className="checkout-page">
 
       <div className="checkout-header">
         <h1>Checkout</h1>
@@ -20,7 +22,7 @@ function CheckoutPage() {
 
       <div className="checkout-content">
         <div className="checkout-left">
-          <CheckoutSummary selectedProduct={selectedProduct} total={total} />
+          <CheckoutSummary selectedProduct={selectedProduct} total={total} onShippingChange={handleShippingChange} shippingSelections={shippingSelections} />
         </div>
 
         <div className="checkout-right">
@@ -33,7 +35,7 @@ function CheckoutPage() {
         </div>
       </div>
 
-    </div>
+    </main>
   )
 }
 
