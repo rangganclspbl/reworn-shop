@@ -1,6 +1,6 @@
 import "./CheckoutSummary.css";
 
-function CheckoutSummary({ selectedProduct, total, shippingSelections, onShippingChange }) { 
+function CheckoutSummary({ selectedProduct, shippingSelections, onShippingChange }) { 
   return (
     <div className="checkout-summary">
       <h2>Order Summary</h2>
@@ -68,11 +68,6 @@ function CheckoutSummary({ selectedProduct, total, shippingSelections, onShippin
           </div>
         </div>
       ))}
-
-      <div className="price-total">
-        <span>Total</span>
-        <strong>${total}</strong>
-      </div>
     </div>
   );
 }

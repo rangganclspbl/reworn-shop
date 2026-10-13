@@ -3,7 +3,7 @@ import useCart from "../../cart/hooks/useCart";
 
 function useCheckout() {
   const [shippingSelections, setShippingSelections] = useState({});
-  const { selectedProduct } = useCart();
+  const { selectedProduct, total } = useCart();
 
   function handleShippingChange(productId, shippingMethod) {
     setShippingSelections((prev) => {
@@ -13,6 +13,10 @@ function useCheckout() {
       };
     });
   }
+  
+  const isShippingComplete = selectedProduct.every((product) => {
+    return shippingSelections[product.id] !== undefined;
+  })
 
   const values = Object.values(shippingSelections);
 
@@ -27,14 +31,10 @@ function useCheckout() {
     .reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
     }, 0);
-  
-  const subtotal = selectedProduct.reduce((accumulator, currentValue) => {
-    return accumulator + currentValue.price
-  },0)
 
-  const grandTotal = totalShipping + subtotal;
+  const grandTotal = totalShipping + total;
 
-  return {shippingSelections, handleShippingChange, totalShipping, subtotal, grandTotal};
+  return {shippingSelections, handleShippingChange, isShippingComplete, totalShipping, grandTotal};
 }
 
 export default useCheckout;

@@ -4,10 +4,11 @@ import CheckoutSummary from "../../components/CheckoutSummary/CheckoutSummary";
 import ShippingAddress from "../../components/ShippingAddress/ShippingAddress";
 import Payment from "../../components/Payment/Payment";
 import useCheckout from "../../hooks/useCheckout";
+import OrderTotal from "../../components/OrderTotal/OrderTotal";
 
 function CheckoutPage() {
   const { selectedProduct, total } = useCart();
-  const { shippingSelections, handleShippingChange } = useCheckout();
+  const { shippingSelections, totalShipping, grandTotal, handleShippingChange, isShippingComplete } = useCheckout();
 
   return (
     <main className="checkout-page">
@@ -22,7 +23,7 @@ function CheckoutPage() {
 
       <div className="checkout-content">
         <div className="checkout-left">
-          <CheckoutSummary selectedProduct={selectedProduct} total={total} onShippingChange={handleShippingChange} shippingSelections={shippingSelections} />
+          <CheckoutSummary selectedProduct={selectedProduct} onShippingChange={handleShippingChange} shippingSelections={shippingSelections} />
         </div>
 
         <div className="checkout-right">
@@ -31,6 +32,9 @@ function CheckoutPage() {
           </div>
           <div className="payment-summary-section">
             <Payment />
+          </div>
+          <div className="order-total-section">
+            <OrderTotal total={total} totalShipping={totalShipping} grandTotal={grandTotal} isShippingComplete={isShippingComplete} />
           </div>
         </div>
       </div>
