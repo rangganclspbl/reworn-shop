@@ -1,8 +1,8 @@
 # REWORN SHOP
 
-REWORN SHOP is a second-hand clothing e-commerce website that I'm building as a portfolio project.
+REWORN SHOP is a second hand clothing e-commerce website that I'm building as a portfolio project.
 
-The project is built with React and JavaScript. I'm building it step by step while learning and applying frontend and full-stack development concepts.
+The project is built with React and JavaScript. I'm building it step by step while learning and applying frontend and fullstack development concepts.
 
 ## Tech Stack
 
@@ -43,13 +43,25 @@ The project is built with React and JavaScript. I'm building it step by step whi
 - Cart Item List
 - Remove Item from Cart
 - Empty Cart State
-- Cart Total
+- Cart Item Selection
+- Selected Items Subtotal
+- Shared Cart State with React Context
 
-The authentication flow is currently frontend-only and will be connected to a backend later.
+### Checkout
+- Checkout Page
+- Checkout Selected Cart Items
+- Buy Now Flow
+- Per-Product Shipping Selection
+- Shipping Cost Calculation
+- Order Total Summary
+- Shipping Address UI
+- Payment Method Selection UI
+- Cancel Checkout and Return to Previous Page
+
+The authentication flow is currently frontend only and will be connected to a backend later. Checkout, shipping address, and payment features are also currently frontend implementations and are not connected to a real payment or order processing system.
 
 ## Project Structure
 
-```text
 src/
 ├── app/
 ├── components/
@@ -57,10 +69,10 @@ src/
 ├── features/
 │   ├── auth/
 │   ├── cart/
+│   ├── checkout/
 │   └── products/
 ├── styles/
 └── utils/
-```
 
 ## Project Status
 
