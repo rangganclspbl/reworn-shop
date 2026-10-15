@@ -4,6 +4,7 @@ import useCart from "../../../cart/hooks/useCart";
 import useAddToCart from "../../../cart/hooks/useAddToCart";
 import LoadingButton from "../../../../components/ui/LoadingButton";
 import { Check } from "lucide-react";
+import useBuyNow from "../../../checkout/hooks/useBuyNow";
 
 function ProductDetail({ product }) {
   const formattedPrice = new Intl.NumberFormat("en-US", {
@@ -18,6 +19,8 @@ function ProductDetail({ product }) {
   });
 
   const { isAdding, isAdded, handleAddToCart } = useAddToCart();
+
+  const { handleBuyNow } = useBuyNow();
 
   return (
     <section className="product-detail">
@@ -76,7 +79,9 @@ function ProductDetail({ product }) {
             )}
           </LoadingButton>
 
-          <button type="button">Buy Now</button>
+          <button type="button" onClick={() => {
+            handleBuyNow(product.id)
+          }}>Buy Now</button>
 
           <button type="button">Wishlist</button>
         </div>

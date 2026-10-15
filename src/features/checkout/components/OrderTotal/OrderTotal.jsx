@@ -1,6 +1,6 @@
 import "./OrderTotal.css";
 
-function OrderTotal({ total, totalShipping, grandTotal, isShippingComplete }) {
+function OrderTotal({ total, totalShipping, grandTotal, isShippingComplete, handlePlaceOrder }) {
   return (
     <div className="order-total">
       <h2>Order Total</h2>
@@ -16,8 +16,7 @@ function OrderTotal({ total, totalShipping, grandTotal, isShippingComplete }) {
         <span>Total</span>
         <strong>${grandTotal}</strong>
       </div>
-      <button className="place-order-button" disabled={!isShippingComplete} onClick={() => {console.log("Place order clicked!");
-      }}>
+      <button className="place-order-button" disabled={!isShippingComplete} onClick={handlePlaceOrder}>
         Place Order
       </button>
     </div>

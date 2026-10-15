@@ -48,8 +48,12 @@ function CartProvider({ children }) {
     }
   }
 
+  function selectProductForCheckout(productId) {
+    setSelectedProductIds([productId]);
+  }
+
   return (
-    <CartContext.Provider value={{ cartProductIds, removeFromCart, addToCart, toggleProductSelection, selectedProductIds, total, cartProducts, selectedProduct }}>
+    <CartContext.Provider value={{ cartProductIds, removeFromCart, addToCart, toggleProductSelection, selectProductForCheckout, selectedProductIds, total, cartProducts, selectedProduct }}>
       {children}
     </CartContext.Provider>
   );

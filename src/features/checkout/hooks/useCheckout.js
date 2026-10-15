@@ -13,10 +13,25 @@ function useCheckout() {
       };
     });
   }
-  
+
+  function handlePlaceOrder() {
+    if (isShippingComplete === false) {
+      return;
+    }
+
+    const orderData = {
+      products: selectedProduct,
+      shippingSelections: shippingSelections,
+      subtotal: total,
+      totalShipping: totalShipping,
+      grandTotal: grandTotal
+    }
+    console.log(orderData);
+  }
+
   const isShippingComplete = selectedProduct.every((product) => {
     return shippingSelections[product.id] !== undefined;
-  })
+  });
 
   const values = Object.values(shippingSelections);
 
@@ -34,7 +49,14 @@ function useCheckout() {
 
   const grandTotal = totalShipping + total;
 
-  return {shippingSelections, handleShippingChange, isShippingComplete, totalShipping, grandTotal};
+  return {
+    shippingSelections,
+    handleShippingChange,
+    isShippingComplete,
+    totalShipping,
+    grandTotal,
+    handlePlaceOrder
+  };
 }
 
 export default useCheckout;
