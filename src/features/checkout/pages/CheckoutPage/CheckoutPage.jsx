@@ -1,5 +1,5 @@
 import "./CheckoutPage.css";
-import { Navigate, useNavigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import useCart from "../../../cart/hooks/useCart";
 import CheckoutSummary from "../../components/CheckoutSummary/CheckoutSummary";
@@ -7,6 +7,7 @@ import ShippingAddress from "../../components/ShippingAddress/ShippingAddress";
 import Payment from "../../components/Payment/Payment";
 import useCheckout from "../../hooks/useCheckout";
 import OrderTotal from "../../components/OrderTotal/OrderTotal";
+import useBackNavigation from "../../../../hooks/useBackNavigation";
 
 function CheckoutPage() {
   const [ isCancelling, setIsCancelling] = useState(false);
@@ -19,24 +20,16 @@ function CheckoutPage() {
     isShippingComplete,
     handlePlaceOrder,
   } = useCheckout();
-
-  const navigate = useNavigate();
+  const { goBack } = useBackNavigation("/cart");
   const location = useLocation();
-  const from = location.state?.from;
   const temporaryProductId = location.state?.temporaryProductId;
 
   function handleBack() {
-    const destination = from || "/cart";
     setIsCancelling(true);
     if (temporaryProductId) {
       removeFromCart(temporaryProductId);
     }
-    // if (!from) {
-    //   navigate("/cart");
-    // } else {
-    //   navigate(from);
-    // }
-    navigate(destination);
+    goBack();
   }
 
   if (selectedProduct.length === 0 && !isCancelling) {
