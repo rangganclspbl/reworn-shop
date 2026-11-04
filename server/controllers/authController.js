@@ -3,12 +3,13 @@ const pool = require("../db");
 //mengambil bcrypt untuk melakukan hashing password
 const bcrypt = require("bcrypt");
 const normalizedEmail = require("../utils/normalizedEmail");
+const jwt = require("jsonwebtoken");
 
 //fungsi untuk register user
 async function registerUser(req, res) {
   try {
     //get data from frontend melalui req body
-    const {name, email, password} = req.body;
+    const { name, email, password } = req.body;
 
     //make sure all input must be fill
     if (!name || !email || !password) {
@@ -17,10 +18,14 @@ async function registerUser(req, res) {
       });
     }
 
-    if (typeof name !== "string" || typeof email !== "string" || typeof password !== "string") {
+    if (
+      typeof name !== "string" ||
+      typeof email !== "string" ||
+      typeof password !== "string"
+    ) {
       return res.status(400).json({
-        message: "Invalid input types."
-      })
+        message: "Invalid input types.",
+      });
     }
 
     //make sure name and email not only contain spacing
@@ -49,7 +54,7 @@ async function registerUser(req, res) {
 
     const existingUser = await pool.query(
       "SELECT id FROM users WHERE email = $1",
-      [emailNormalized]
+      [emailNormalized],
     );
 
     if (existingUser.rows.length > 0) {
@@ -64,7 +69,7 @@ async function registerUser(req, res) {
     //RETURNING mengambil data user yang berhasil dibuat
     const result = await pool.query(
       `INSERT INTO users (name, email, password_hash) VALUES ($1, $2, $3) RETURNING id, name, email`,
-      [name.trim(), emailNormalized, passwordHash]
+      [name.trim(), emailNormalized, passwordHash],
     );
 
     //mengirim respons sukses tanpa mengirim password atau hash
@@ -72,7 +77,6 @@ async function registerUser(req, res) {
       message: "Registration successful",
       user: result.rows[0],
     });
-
   } catch (error) {
     console.error("Registration failed:", error.message);
 
@@ -87,25 +91,26 @@ async function loginUser(req, res) {
     const { email, password } = req.body;
     if (!email || !password) {
       return res.status(400).json({
-        message: "Email and password are required"
-      })
+        message: "Email and password are required",
+      });
     }
 
     if (typeof email !== "string" || typeof password !== "string") {
       return res.status(400).json({
-        message: "Invalid input types."
-      })
+        message: "Invalid input types.",
+      });
     }
-    
+
     const emailNormalized = normalizedEmail(email);
     const result = await pool.query(
-      `SELECT id, name, email, password_hash FROM users WHERE email = $1`, [emailNormalized]
-    )
+      `SELECT id, name, email, password_hash FROM users WHERE email = $1`,
+      [emailNormalized],
+    );
 
     if (result.rows.length === 0) {
       return res.status(401).json({
         message: "Invalid email or password",
-      })
+      });
     }
 
     const user = result.rows[0];
@@ -113,8 +118,12 @@ async function loginUser(req, res) {
     if (!isPasswordValid) {
       return res.status(401).json({
         message: "Invalid email or password",
-      })
+      });
     }
+
+    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
     return res.status(200).json({
       message: "Login successful",
@@ -123,14 +132,41 @@ async function loginUser(req, res) {
         name: user.name,
         email: user.email,
       },
-    })
-
+      token,
+    });
   } catch (error) {
-    console.error("Login failed:", error.message)
+    console.error("Login failed:", error.message);
     return res.status(500).json({
       message: "Unexpected error occurred",
+    });
+  }
+}
+
+async function getCurrentUser(req, res) {
+  try {
+    const { userId } = req.user;
+    const result = await pool.query(
+      `SELECT id, name, email FROM users WHERE id = $1`,
+      [userId],
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+
+    const user = result.rows[0];
+    return res.status(200).json({
+      message: "User retrieved successfully",
+      user,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message: "Unexpected error occurred"
     })
   }
 }
 
-module.exports = { registerUser, loginUser };
+module.exports = { registerUser, loginUser, getCurrentUser };
